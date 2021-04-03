@@ -17,7 +17,7 @@ const NavBarData = [
     className: "text-box",
   },
   {
-    title: "Liked Songs",
+    title: "Liked songs",
     path: "liked-songs",
     icon: Browse,
     className: "text-box",

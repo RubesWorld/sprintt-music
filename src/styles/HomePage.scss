@@ -1,0 +1,20 @@
+.square {
+  width: 200px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+  }
+  .title {
+    font-size: 18px;
+    padding-top: 0.6rem;
+  }
+  .description {
+    font-size: 14px;
+    line-height: 17px;
+    width: 100%;
+  }
+}

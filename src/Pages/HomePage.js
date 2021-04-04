@@ -1,9 +1,10 @@
 import React from "react";
+import Playlist from "../Components/Playlist";
 
 function HomePage() {
   return (
     <div className="pages">
-      <h1>Home</h1>
+      <Playlist />
     </div>
   );
 }

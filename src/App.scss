@@ -1,0 +1,12 @@
+@import "./styles/navbar.scss";
+@import "./styles/layout.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: 0;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+}

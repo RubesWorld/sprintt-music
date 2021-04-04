@@ -1,0 +1,15 @@
+.App {
+  .sidebar {
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+    z-index: 11;
+  }
+  .main-content {
+    width: 80%;
+    margin-left: 20%;
+    min-height: 100vh;
+    position: relative;
+    background-color: rgba(241, 247, 241, 1);
+  }
+}

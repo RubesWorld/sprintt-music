@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function BrowsePage() {
-    return (
-        <div>
-            
-        </div>
-    )
+  return (
+    <div className="pages">
+      <h1>Browse</h1>
+    </div>
+  );
 }
 
-export default BrowsePage
+export default BrowsePage;

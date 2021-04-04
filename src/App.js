@@ -10,16 +10,20 @@ import LikedSongsPage from "./Pages/LikedSongsPage";
 
 function App() {
   return (
-    <>
+    <div className="App">
       <Router>
-        <NavBar />
-        <Switch>
-          {/* <Route path="/" component={HomePage} />
-          <Route path="/browse" component={BrowsePage} />
-          <Route path="/liked-songs" component={LikedSongsPage} /> */}
-        </Switch>
+        <div className="sidebar">
+          <NavBar />
+        </div>
+        <div className="main-content">
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/browse" component={BrowsePage} />
+            <Route path="/liked-songs" component={LikedSongsPage} />
+          </Switch>
+        </div>
       </Router>
-    </>
+    </div>
   );
 }
 

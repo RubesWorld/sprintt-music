@@ -1,8 +1,11 @@
-.square {
+@import "react-alice-carousel/lib/scss/alice-carousel.scss";
+
+.playlist {
   width: 200px;
   height: 600px;
   display: flex;
   flex-direction: column;
+  margin-right: 4rem;
   img {
     width: 200px;
     height: 200px;
@@ -15,6 +18,26 @@
   .description {
     font-size: 14px;
     line-height: 17px;
-    width: 100%;
+    width: 85%;
+  }
+}
+
+.carousel {
+  overflow: hidden;
+  //   width: 1150px;
+  width: 79%;
+  height: 375px;
+  margin: 0 8.8rem;
+  .top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+    padding: 0 0.5rem;
+  }
+  .arrow {
+    padding-left: 10px;
+  }
+  .tabs {
+    display: flex;
   }
 }

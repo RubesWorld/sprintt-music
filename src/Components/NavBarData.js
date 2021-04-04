@@ -1,4 +1,3 @@
-import React from "react";
 import Home from "../assets/home_icon.png";
 import Liked from "../assets/liked_songs_icon.png";
 import Browse from "../assets/browse_icon.png";

@@ -1,10 +1,10 @@
 import React from "react";
-import Playlist from "../Components/Playlist";
+import PlaylistCarousel from "../Components/Playlist-Carousel";
 
 function HomePage() {
   return (
-    <div className="pages">
-      <Playlist />
+    <div>
+      <PlaylistCarousel playlistTitle={"Recently Played"} />
     </div>
   );
 }

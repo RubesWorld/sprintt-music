@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import NavBarData from "./NavBarData";
 import Logo from "../assets/logo.png";
 
 function NavBar() {
-  const [sidebar, setSidebar] = useState(false);
-
-  const menuItemToggle = () => {};
-
   return (
     <div className="NavBar">
       <nav className="nav-menu">
@@ -20,8 +16,9 @@ function NavBar() {
                 exact
                 activeClassName="active"
                 className={item.className}
+                key={index}
               >
-                <li key={index}>
+                <li>
                   <img className="nav-icon" src={item.icon} alt="" />
                   <span className="text">{item.title}</span>
                 </li>

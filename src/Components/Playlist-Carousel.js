@@ -119,11 +119,7 @@ function PlaylistCarousel({ playlistTitle }) {
           <div className="playlist-container">
             {playlists.length > 0 &&
               playlists.map((tab, index) => {
-                return (
-                  <div key={index}>
-                    <Playlist playlists={tab} />;
-                  </div>
-                );
+                return <Playlist playlists={tab} key={index} />;
               })}
           </div>
         </div>

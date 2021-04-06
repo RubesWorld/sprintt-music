@@ -2,10 +2,12 @@
 
 .playlist {
   width: 200px;
-  height: 600px;
+  height: 325px;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
   margin-right: 4rem;
+
   img {
     width: 200px;
     height: 200px;
@@ -22,22 +24,32 @@
   }
 }
 
-.carousel {
-  overflow: hidden;
+.playlist-carousel {
   //   width: 1150px;
-  width: 79%;
-  height: 375px;
+  max-width: 80rem;
+  height: 325px;
   margin: 0 8.8rem;
+  .playlist-top {
+    display: flex;
+  }
   .top {
     display: flex;
     justify-content: space-between;
     margin-bottom: 2.5rem;
     padding: 0 0.5rem;
   }
+  .carousel {
+    overflow-y: hidden;
+  }
   .arrow {
     padding-left: 10px;
+    cursor: pointer;
   }
-  .tabs {
+  .playlist-container {
     display: flex;
   }
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
 }

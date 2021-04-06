@@ -1,8 +1,5 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import Playlist from "../Components/Playlist";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 import left from "../assets/left-arrow.png";
 import right from "../assets/right-arrow.png";
@@ -84,38 +81,54 @@ let playlists = [
 ];
 
 function PlaylistCarousel({ playlistTitle }) {
+  const playlistRef = useRef();
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 5,
+  const prevClick = () => {
+    if (playlistRef) {
+      console.log(playlistRef.current);
+      playlistRef.current.scrollBy({
+        top: 200,
+        left: -1300,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const nextClick = () => {
+    if (playlistRef) {
+      console.log(playlistRef.current);
+      playlistRef.current.scrollBy({
+        top: 200,
+        left: 1300,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
-    <div className="carousel">
-      <div className="top">
-        <h3>{playlistTitle}</h3>
-        <div className="icons">
-          <img src={left} alt="" className="arrow" />
-          <img src={right} alt="" className="arrow" />
+    <>
+      <div className="playlist-carousel">
+        <div className="top">
+          <h3>{playlistTitle}</h3>
+          <div className="icons">
+            <img src={left} alt="" className="arrow" onClick={prevClick} />
+            <img src={right} alt="" className="arrow" onClick={nextClick} />
+          </div>
+        </div>
+        <div className="carousel" ref={playlistRef}>
+          <div className="playlist-container">
+            {playlists.length > 0 &&
+              playlists.map((tab, index) => {
+                return (
+                  <div key={index}>
+                    <Playlist playlists={tab} />;
+                  </div>
+                );
+              })}
+          </div>
         </div>
       </div>
-      <div className="tabs">
-        {playlists.length > 0 && (
-          <Slider {...settings}>
-            {playlists.map((tab, index) => {
-              return (
-                <div key={index}>
-                  <Playlist playlists={tab} />;
-                </div>
-              );
-            })}
-          </Slider>
-        )}
-      </div>
-    </div>
+    </>
   );
 }
 

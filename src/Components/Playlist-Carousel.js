@@ -83,6 +83,9 @@ let playlists = [
 function PlaylistCarousel({ playlistTitle }) {
   const playlistRef = useRef();
 
+  //*add a class to the div to the container for playlist 
+  //*change the position of the 
+  //*use css transitions to move 
   const prevClick = () => {
     if (playlistRef) {
       console.log(playlistRef.current);
@@ -105,14 +108,34 @@ function PlaylistCarousel({ playlistTitle }) {
     }
   };
 
+  const disabled = () => {
+    if (playlists.length < 6) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const toggleArrows = () => {};
+
   return (
     <>
       <div className="playlist-carousel">
         <div className="top">
           <h3>{playlistTitle}</h3>
           <div className="icons">
-            <img src={left} alt="" className="arrow" onClick={prevClick} />
-            <img src={right} alt="" className="arrow" onClick={nextClick} />
+            <img
+              src={left}
+              alt=""
+              className={`arrow ${disabled === true ? " disabled" : ""}`}
+              onClick={prevClick}
+            />
+            <img
+              src={right}
+              alt=""
+              className={`arrow ${disabled === true ? " disabled" : ""}`}
+              onClick={nextClick}
+            />
           </div>
         </div>
         <div className="carousel" ref={playlistRef}>

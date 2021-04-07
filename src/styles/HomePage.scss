@@ -41,15 +41,19 @@
     padding: 0 0.5rem;
   }
   .carousel {
-    overflow-y: hidden;
+    overflow-x: hidden;
   }
   .arrow {
-    padding-left: 10px;
+    padding-left: 15px;
     cursor: pointer;
   }
   .playlist-container {
     display: flex;
   }
+}
+.disabled {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
 }
 
 .carousel::-webkit-scrollbar {

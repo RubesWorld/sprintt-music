@@ -1,6 +1,8 @@
 .App {
   .sidebar {
-    width: 16%;
+    //fixed with pixels
+    width: 270px;
+    // width: 16%;
     height: 100vh;
     position: fixed;
     z-index: 11;

@@ -1,7 +1,6 @@
 import React from "react";
 
-function Playlist(props) {
-  const { playlists } = props;
+function Playlist({ playlists }) {
   return (
     <div className="playlist">
       <img src={playlists.image_url} alt="" className="cover" />

@@ -1,10 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import Playlist from "../Components/Playlist";
 
 import left from "../assets/left-arrow.png";
 import right from "../assets/right-arrow.png";
-
-import axiosWithAuth from "../util/axiosWithAuth";
 
 let playlists = [
   {
@@ -83,36 +81,6 @@ let playlists = [
 ];
 
 function PlaylistCarousel({ playlistTitle, playlistData }) {
-  const [recent, setRecent] = useState("");
-  const [featured, setFeatured] = useState("");
-  const [mood, setMood] = useState("");
-
-  //*calling recent API
-  useEffect(() => {
-    axiosWithAuth()
-      .get("recently_played_playlists?limit=10")
-      .then((songs) => {
-        setRecent(songs.data);
-      });
-  }, []);
-
-  //*calling featured API
-  useEffect(() => {
-    axiosWithAuth()
-      .get("featured_playlists?limit=10")
-      .then((songs) => {
-        setFeatured(songs.data);
-      });
-  }, []);
-  //*calling mood API
-  useEffect(() => {
-    axiosWithAuth()
-      .get("mood_playlists?limit=10")
-      .then((songs) => {
-        setMood(songs.data);
-      });
-  }, []);
-
   const playlistRef = useRef();
 
   //*add a class to the div to the container for playlist
@@ -120,7 +88,7 @@ function PlaylistCarousel({ playlistTitle, playlistData }) {
   //*use css transitions to move
   const prevClick = () => {
     if (playlistRef) {
-      console.log(playlistRef.current);
+      // console.log(playlistRef.current);
       playlistRef.current.scrollBy({
         top: 200,
         left: -1300,
@@ -131,7 +99,7 @@ function PlaylistCarousel({ playlistTitle, playlistData }) {
 
   const nextClick = () => {
     if (playlistRef) {
-      console.log(playlistRef.current);
+      // console.log(playlistRef.current);
       playlistRef.current.scrollBy({
         top: 200,
         left: 1300,
@@ -141,7 +109,7 @@ function PlaylistCarousel({ playlistTitle, playlistData }) {
   };
 
   const disabled = () => {
-    if (playlistData.playlists.length < 6) {
+    if (playlists.length < 6) {
       return true;
     } else {
       return false;
@@ -152,32 +120,30 @@ function PlaylistCarousel({ playlistTitle, playlistData }) {
 
   return (
     <>
-      <div>
-        <div className="playlist-carousel">
-          <div className="top">
-            <h3>{playlistTitle}</h3>
-            <div className="icons">
-              <img
-                src={left}
-                alt=""
-                className={`arrow ${disabled === true ? " disabled" : ""}`}
-                onClick={prevClick}
-              />
-              <img
-                src={right}
-                alt=""
-                className={`arrow ${disabled === true ? " disabled" : ""}`}
-                onClick={nextClick}
-              />
-            </div>
+      <div className="playlist-carousel">
+        <div className="top">
+          <h3>{playlistTitle}</h3>
+          <div className="icons">
+            <img
+              src={left}
+              alt=""
+              className={`arrow ${disabled === true ? " disabled" : ""}`}
+              onClick={prevClick}
+            />
+            <img
+              src={right}
+              alt=""
+              className={`arrow ${disabled === true ? " disabled" : ""}`}
+              onClick={nextClick}
+            />
           </div>
-          <div className="carousel" ref={playlistRef}>
-            <div className="playlist-container">
-              {playlists.length > 0 &&
-                playlists.map((tab, index) => {
-                  return <Playlist playlists={tab} key={index} />;
-                })}
-            </div>
+        </div>
+        <div className="carousel" ref={playlistRef}>
+          <div className="playlist-container">
+            {playlistData.length &&
+              playlistData.map((tab, index) => {
+                return <Playlist playlists={tab} key={index} />;
+              })}
           </div>
         </div>
       </div>

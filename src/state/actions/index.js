@@ -1,12 +1,3 @@
-import { createStore, applyMiddleware, combineReducers } from "redux";
-
-import thunk from "redux-thunk";
-
-import logger from "redux-logger";
-
-export const rootReducer = combineReducers({
-    
-})
-
-
-export const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+export { getMoodPlaylistAction } from "./moodActions";
+export { getFeaturedPlaylistAction } from "./featuredActions";
+export { getRecentlyPlayedPlaylistAction } from "./recentlyPlayedActions";
